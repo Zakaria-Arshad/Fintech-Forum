@@ -1,0 +1,32 @@
+.post-link {
+    text-decoration: none; /* Removes underline from links */
+    color: inherit; /* Inherits text color from parent */
+}
+
+.post-container {
+    border: 1px solid #ddd; /* Light grey border */
+    width: 30em; /* Width of each Post (CHANGE IF NECESSARY) */
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 8px; /* Rounded corners for the box */
+    background-color: white;
+    transition: box-shadow 0.3s ease; /* Smooth transition for shadow */
+}
+
+.post-container:hover {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
+}
+
+.post-title {
+    font-size: 1.5em; /* Larger text for the title */
+    margin-bottom: 0.5em;
+}
+
+.post-comments,
+.post-upvotes,
+.post-date {
+    font-size: 0.9em; /* Smaller text for details */
+    color: #555; /* Darker grey for the text */
+}
+
+/* Additional styling for responsiveness and more can be added as needed */

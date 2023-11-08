@@ -1,8 +1,10 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
+import { Link } from 'react-router-dom';
+import '../Post.css';
 
-function Post() {
-    const { id } = useParams(); // will come from routing link
+
+function Post( { id }) {
     const [postInfo, setPostInfo] = useState(null);
     const [commentNum, setCommentNum] = useState(0);
 
@@ -40,17 +42,24 @@ function Post() {
     }, [id]);
     
     // need to wrap with a Link to with more info about the post after setting up router
+    // below makes sure that post info exists before trying to access them
     return (
-        <>
-        
-        <div>
-            <p>Post title: {postInfo.title}</p>
-            <p>Number of comments: {commentNum}</p>
-            <p>Number of upvotes: {postInfo.upvotes}</p>
-            <p>Post created at: {postInfo.created_at}</p>
-        </div>
-        </>
-    )
+        <Link to={`/posts/${id}`} className="post-link">
+            <div className="post-container">
+                {postInfo ? (
+                    <>
+                        <h2 className="post-title">{postInfo.title}</h2>
+                        <p className="post-comments">Comments: {commentNum}</p>
+                        <p className="post-upvotes">Upvotes: {postInfo.upvotes}</p>
+                        <p className="post-date">Posted: {new Date(postInfo.created_at).toLocaleDateString()}</p>
+                    </>
+                ) : (
+                    <p>Loading post...</p>
+                )}
+            </div>
+        </Link>
+    );
+    
 }
 
 export default Post

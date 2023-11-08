@@ -1,0 +1,8 @@
+.post-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This centers the posts horizontally in the container */
+    justify-content: flex-start; /* This aligns the posts to the top of the container */
+    padding: 20px;
+  }
+  

@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
 import { Link } from 'react-router-dom';
+import Post from './Post';
+import "../HomeFeedPage.css"
 
 function HomeFeedPage() {
     const [posts, setPosts] = useState([])
@@ -33,6 +35,7 @@ function HomeFeedPage() {
         fetchPosts();
     }, [])
 
+    // STILL NEED TO DO: The sorting buttons
     return (
         <>
           <button className="sort-by-upvotes-button" type="button">Order by Upvotes</button>
@@ -40,9 +43,7 @@ function HomeFeedPage() {
           <div className="post-feed">
             {posts.map((post) => (
               <div key={post.id}>
-                <h2>{post.title}</h2>
-                <p>Upvotes: {post.upvotes}</p>
-                <p>Comments: {post.commentsCount}</p>
+                <Post id={post.id} /> 
               </div>
             ))}
           </div>
