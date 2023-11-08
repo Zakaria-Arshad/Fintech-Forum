@@ -28,7 +28,6 @@ function CreatePostPage(){
             setBodyText('');
             setImageURL('');
         }
-
     };
 
     return (
@@ -39,13 +38,15 @@ function CreatePostPage(){
                     type="text" 
                     placeholder='Title' 
                     value={postTitle} 
-                    onChange={(e) => setPostTitle(e.target.value)}>
+                    onChange={(e) => setPostTitle(e.target.value)}
+                    required>
                 </input>
                 <input 
                     type="text" 
                     placeholder='Post Content' 
                     value={bodyText} 
-                    onChange={(e) => setBodyText(e.target.value)}>
+                    onChange={(e) => setBodyText(e.target.value)}
+                    required>
                 </input>
                 <input 
                     type="text" 
