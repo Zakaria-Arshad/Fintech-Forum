@@ -1,5 +1,7 @@
 import { React, useState } from 'react';
 import supabase from '../supabaseClient';
+import { Link } from 'react-router-dom';
+
 
 function CreatePostPage(){
     const [postTitle, setPostTitle] = useState('');
@@ -54,6 +56,7 @@ function CreatePostPage(){
             </div>
             <button className="submit-create-post" type="submit">Post</button>
         </form>
+        <Link to="/">Home</Link>
         </>
     );
 }

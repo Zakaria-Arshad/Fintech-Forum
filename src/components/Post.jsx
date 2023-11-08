@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
+import supabase from '../supabaseClient';
 
-function Post(){
+function Post() {
     const { id } = useParams(); // will come from routing link
     const [postInfo, setPostInfo] = useState(null);
     const [commentNum, setCommentNum] = useState(0);
