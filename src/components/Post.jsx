@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import '../Post.css';
 
 
-function Post( { id }) {
+function Post( { id } ) {
     const [postInfo, setPostInfo] = useState(null);
     const [commentNum, setCommentNum] = useState(0);
 
