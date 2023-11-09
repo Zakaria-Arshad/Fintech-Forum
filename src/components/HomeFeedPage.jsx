@@ -35,11 +35,27 @@ function HomeFeedPage() {
         fetchPosts();
     }, [])
 
-    // STILL NEED TO DO: The sorting buttons
+    const sort = (sort_type) => {
+      let sortedPosts; 
+    
+      switch (sort_type) {
+        case "upvotes":
+          sortedPosts = [...posts].sort((a, b) => b.upvotes - a.upvotes); // Descending order
+          setPosts(sortedPosts);
+          break;
+        case "time":
+          sortedPosts = [...posts].sort((a, b) => new Date(b.created_at) - new Date(a.created_at)); // Descending order
+          setPosts(sortedPosts);
+          break;
+        default:
+      }
+    };
+    
+
     return (
         <>
-          <button className="sort-by-upvotes-button" type="button">Order by Upvotes</button>
-          <button className="sort-by-time-button" type="button">Order by Time</button>
+          <button className="sort-by-upvotes-button" type="button" onClick={() => sort("upvotes")}>Order by Upvotes</button>
+          <button className="sort-by-time-button" type="button" onClick={() => sort("time")}>Order by Time</button>
           <div className="post-feed">
             {posts.map((post) => (
               <div key={post.id}>

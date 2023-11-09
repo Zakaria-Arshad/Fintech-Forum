@@ -3,7 +3,8 @@ import supabase from '../supabaseClient';
 import { useParams } from 'react-router-dom';
 import SubmitCommentForm from './SubmitCommentForm';
 
-function UniquePostPage(){
+function UniquePostPage() {
+    
     const { id } = useParams()
     const [postInfo, setPostInfo] = useState(null) // just one post, so null
     const [commentInfo, setCommentInfo] = useState([]) // will be multiple comments, thus array 
@@ -38,6 +39,7 @@ function UniquePostPage(){
         }
     }
 
+    // triggers on updates to Comments and Upvotes
     useEffect(() => {
 
         fetchPost();
@@ -68,6 +70,7 @@ function UniquePostPage(){
         }
     }
 
+    // need to add Post creation and deletion
     return (
         <>
         <div>

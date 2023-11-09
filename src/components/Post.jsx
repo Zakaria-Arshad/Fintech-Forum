@@ -41,7 +41,6 @@ function Post( { id } ) {
     
     }, [id]);
     
-    // need to wrap with a Link to with more info about the post after setting up router
     // below makes sure that post info exists before trying to access them
     return (
         <Link to={`/posts/${id}`} className="post-link">
