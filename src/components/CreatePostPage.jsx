@@ -1,6 +1,7 @@
 import { React, useState } from 'react';
 import supabase from '../supabaseClient';
 import { Link } from 'react-router-dom';
+import "../CreatePostPage.css"
 
 
 function CreatePostPage(){
@@ -35,21 +36,24 @@ function CreatePostPage(){
         <form onSubmit={handleSubmit}>
             <div className="create-post-column">
                 <input 
-                    type="text" 
+                    type="text"
+                    className="title-input" 
                     placeholder='Title' 
                     value={postTitle} 
                     onChange={(e) => setPostTitle(e.target.value)}
                     required>
                 </input>
                 <input 
-                    type="text" 
+                    type="text"
+                    className="content-input" 
                     placeholder='Post Content' 
                     value={bodyText} 
                     onChange={(e) => setBodyText(e.target.value)}
                     required>
                 </input>
                 <input 
-                    type="text" 
+                    type="text"
+                    className="image-input" 
                     placeholder='Image URL' 
                     value={imageURL} 
                     onChange={(e) => setImageURL(e.target.value)}>
@@ -57,7 +61,6 @@ function CreatePostPage(){
             </div>
             <button className="submit-create-post" type="submit">Post</button>
         </form>
-        <Link to="/">Home</Link>
         </>
     );
 }

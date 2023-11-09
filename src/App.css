@@ -1,0 +1,47 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: blueviolet;
+}
+
+nav ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    align-items: center;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 14px 16px;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+.create-post-link {
+    float: right;
+}
+
+.home-link {
+    float: right;
+}
+
+.app-title {
+    margin-left: 47rem;
+    margin-top: .85rem;
+    color: white;
+}

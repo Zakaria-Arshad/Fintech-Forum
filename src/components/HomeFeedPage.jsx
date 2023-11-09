@@ -5,6 +5,7 @@ import Post from './Post';
 import "../HomeFeedPage.css"
 
 function HomeFeedPage() {
+    const [searchTerm, setSearchTerm] = useState('');
     const [posts, setPosts] = useState([])
 
     const fetchPosts = async () => {
@@ -50,14 +51,24 @@ function HomeFeedPage() {
         default:
       }
     };
+
+    const filteredPosts = posts.filter((post) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // called when input changes
+    const handleSearchChange = (e) => {
+      setSearchTerm(e.target.value); // this triggers a re-render, which causes filteredPosts to be called
+    };
     
 
     return (
         <>
+          <input type="text" value={searchTerm} onChange={handleSearchChange} />
           <button className="sort-by-upvotes-button" type="button" onClick={() => sort("upvotes")}>Order by Upvotes</button>
           <button className="sort-by-time-button" type="button" onClick={() => sort("time")}>Order by Time</button>
           <div className="post-feed">
-            {posts.map((post) => (
+            {filteredPosts.map((post) => (
               <div key={post.id}>
                 <Post id={post.id} /> 
               </div>

@@ -95,7 +95,7 @@ function UniquePostPage() {
                 <>
                     <p>Post title: {postInfo.title}</p>
                     <p>Post content: {postInfo.content}</p>
-                    <p>Post image: {postInfo.image ? (<img src={postInfo.image}></img>) : (null)}</p>
+                    <p>Post image: {postInfo.image_url ? (<img src={postInfo.image_url}></img>) : (null)}</p>
                     <p>Number of upvotes: {postInfo.upvotes}</p>
                     <p>Number of comments: {commentInfo.length}</p>
                     <p>Post created at: {postInfo.created_at}</p>
