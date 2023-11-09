@@ -1,12 +1,14 @@
 import { React, useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 function UpdatePostPage() {
     const { id } = useParams()
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [imageURL, setImageURL] = useState('')
+    const navigate = useNavigate();
+
     const fetchPosts = async() => {
         const {data, error} = await supabase
             .from("posts")
@@ -42,6 +44,7 @@ function UpdatePostPage() {
             console.log("Error occured when updating: ", error)
         } else {
             console.log("Success!")
+            navigate(`/posts/${id}`)
         }
     }
 
