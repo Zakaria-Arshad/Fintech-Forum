@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import supabase from '../supabaseClient';
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import SubmitCommentForm from './SubmitCommentForm';
 
 function UniquePostPage() {
@@ -10,6 +10,8 @@ function UniquePostPage() {
     const [commentInfo, setCommentInfo] = useState([]) // will be multiple comments, thus array 
     const [triggerFetch, setTriggerFetch] = useState(false)
     const [upvote, setUpvote] = useState(false)
+    const navigate = useNavigate();
+
     // still need to fetch comment amount
 
     const fetchPost = async () => {
@@ -69,6 +71,21 @@ function UniquePostPage() {
         setUpvote(prev => !prev);
         }
     }
+    
+        async function deletePost() {
+            const { data, error } = await supabase
+            .from('posts')
+            .delete()
+            .match({ id: id });
+        
+            if (error) {
+            console.log('Error deleting post:', error);
+            } else {
+            console.log('Post deleted successfully:', data);
+            navigate('/'); // navigate home after deleting post
+            }
+        }
+      
 
     // need to add Post creation and deletion
     return (
@@ -88,17 +105,18 @@ function UniquePostPage() {
             )}
         </div>
         <button onClick={upvoteUpdate}>Upvote</button>
+        <button onClick={deletePost}>Delete</button>
+        <Link to={`/posts/update/${id}`}>Edit</Link> 
         <SubmitCommentForm id={id} onCommentSubmit={handleNewComment}></SubmitCommentForm>
         <div>
             {commentInfo ? (
                 <>
-                    {commentInfo.map((comment) =>
-                    <>
+                    {commentInfo.map((comment, index) => (
+                        <div key={comment.id}> 
                         <p>{comment.comment_text}</p>
                         <p>{comment.created_at}</p>
-                    </> 
-                    )
-                    }
+                        </div>
+                    ))}
                 </>
             ) : null
             }
