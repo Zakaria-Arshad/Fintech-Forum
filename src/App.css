@@ -1,4 +1,42 @@
 body, html {
     margin: 0;
     padding: 0;
+    background: rgba(153, 176, 128, .5);
+
 }
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(116, 142, 99);
+
+    color: black;
+    height: 70px;
+}
+
+.links {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.home-link, .create-post-link {
+    margin-right: 20px;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    color: black;
+    font-size: 21px;
+
+}
+
+.home-link:hover {
+    color: rgb(250, 248, 237);
+}
+
+.create-post-link:hover {
+    color: rgb(250, 248, 237);
+}
+

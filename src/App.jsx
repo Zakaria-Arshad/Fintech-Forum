@@ -14,11 +14,17 @@ import {
 function NavBar() {
   return (
     <nav>
-      <ul>
-        <li className="app-title">App Title</li>
-        <li className="create-post-link"><Link to="/createpost">Create Post</Link></li>
-        <li className="home-link"><Link to="/">Home</Link></li>
-      </ul>
+      <div>
+        <div> Logo </div>
+      </div>
+      <div className="links">
+        <div className="link-container">
+        <Link className="home-link" to="/">HOME</Link>
+        </div>
+        <div className="link-container">
+        <Link className="create-post-link" to="/createpost">CREATE POST</Link>
+        </div>
+      </div>
     </nav>
   );
 }
