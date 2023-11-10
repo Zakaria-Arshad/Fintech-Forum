@@ -43,14 +43,14 @@ function CreatePostPage(){
                     onChange={(e) => setPostTitle(e.target.value)}
                     required>
                 </input>
-                <input 
+                <textarea 
                     type="text"
                     className="content-input" 
                     placeholder='Post Content' 
                     value={bodyText} 
                     onChange={(e) => setBodyText(e.target.value)}
                     required>
-                </input>
+                </textarea>
                 <input 
                     type="text"
                     className="image-input" 

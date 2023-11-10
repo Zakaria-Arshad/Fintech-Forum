@@ -1,8 +1,18 @@
 body, html {
     margin: 0;
     padding: 0;
-    background: rgba(153, 176, 128, .5);
+    background: rgba(153, 176, 128);
+    
+}
 
+html {
+    overflow-y: scroll; /*prevents scrollbar from repositioning web page items*/
+}
+
+.app-logo {
+    height: 42px;
+    width: 300px;
+    margin-left: 10px;
 }
 
 nav {
@@ -11,7 +21,6 @@ nav {
     justify-content: space-between;
     align-items: center;
     background: rgb(116, 142, 99);
-
     color: black;
     height: 70px;
 }
@@ -21,6 +30,7 @@ nav {
     flex-direction: row;
     justify-content: center;
     flex-grow: 1;
+    margin-right: 290px;
 }
 
 .home-link, .create-post-link {

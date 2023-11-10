@@ -5,4 +5,73 @@
     justify-content: flex-start; /* This aligns the posts to the top of the container */
     padding: 20px;
   }
+
+.sort-and-search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 450px;
+  flex-grow: 1;
+}
+
+.search-bar {
+  border-radius: 10px;
+  height: 40px; 
+  width: 100%; /* Responsive to container size */
+  max-width: 300px; 
+  padding: 0 10px; /* Space for text inside the input */
+  border: 1px solid #ccc; 
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition for focus */
+  outline: none; 
+}
+
+.search-bar::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.search-bar:focus {
+  border-color: #333; /* Darker border on focus */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2); /* Deeper shadow on focus */
+}
+
   
+.sort-buttons {
+  margin-right: 100px;
+}
+
+.sort-by-upvotes-button, .sort-by-time-button {
+  background-color: rgb(67, 83, 52);  
+  color: rgb(250, 248, 237);          
+  border: none;                      
+  border-radius: 10%;                 /* Make round buttons */
+  padding: 10px 20px;                 /* Spacing inside the buttons */
+  margin: 5px;                        
+  font-weight: bold;                  
+  text-transform: uppercase;          
+  cursor: pointer;                    /* Pointer cursor on hover */
+  transition: background-color 0.3s;  /* Smooth background color transition */
+}
+
+.sort-by-upvotes-button:hover, .sort-by-time-button:hover {
+  background-color: rgb(85, 105, 69); /* Slightly darker color on hover */
+}
+
+/* Add a box-shadow for a subtle lift effect */
+.sort-by-upvotes-button, .sort-by-time-button {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/*Add a hover effect to scale the buttons for interactivity */
+.sort-by-upvotes-button:hover, .sort-by-time-button:hover {
+  transform: scale(1.05);
+}

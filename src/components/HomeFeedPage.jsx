@@ -61,12 +61,17 @@ function HomeFeedPage() {
       setSearchTerm(e.target.value); // this triggers a re-render, which causes filteredPosts to be called
     };
     
-
     return (
         <>
-          <input type="text" value={searchTerm} onChange={handleSearchChange} />
+        <div className="sort-and-search-container">
+          <div className="search-container">
+          <input type="text" value={searchTerm} placeholder="Search by title" onChange={handleSearchChange} className="search-bar"/>
+          </div>
+        <div className="sort-buttons">
           <button className="sort-by-upvotes-button" type="button" onClick={() => sort("upvotes")}>Order by Upvotes</button>
           <button className="sort-by-time-button" type="button" onClick={() => sort("time")}>Order by Time</button>
+        </div>
+        </div>
           <div className="post-feed">
             {filteredPosts.map((post) => (
               <div key={post.id}>
@@ -74,7 +79,6 @@ function HomeFeedPage() {
               </div>
             ))}
           </div>
-          <Link to={"/createpost"}>Create Post</Link>
         </>
       );
 }

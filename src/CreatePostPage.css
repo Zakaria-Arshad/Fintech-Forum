@@ -23,15 +23,22 @@
 
 .submit-create-post {
     position: relative;
-    left: 55rem;
-    background-color: blueviolet;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding-left: 15px; /* increase button size */
-    padding-right: 15px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-
-
+    left: 53rem;
+    background-color: rgb(67, 83, 52);  
+    color: rgb(250, 248, 237);          
+    border: none;                      
+    border-radius: 10%;                 /* Make round buttons */
+    padding: 10px 20px;                 /* Spacing inside the buttons */
+    margin: 5px;                        
+    font-weight: bold;                  
+    text-transform: uppercase;          
+    cursor: pointer;                    /* Pointer cursor on hover */
+    transition: background-color 0.3s;  /* Smooth background color transition */
 }
+
+input::placeholder, textarea::placeholder {
+    font-family: Arial, sans-serif;
+    color: #999;
+    opacity: 1; /* full opacity */
+  }
+  

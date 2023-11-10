@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 import '../Post.css';
 
 
@@ -46,14 +47,21 @@ function Post( { id } ) {
         <Link to={`/posts/${id}`} className="post-link">
             <div className="post-container">
                 {postInfo ? (
-                    <>
-                        <h2 className="post-title">{postInfo.title}</h2>
-                        <p className="post-comments">Comments: {commentNum}</p>
-                        <p className="post-upvotes">Upvotes: {postInfo.upvotes}</p>
-                        <p className="post-date">Posted: {new Date(postInfo.created_at).toLocaleDateString()}</p>
-                    </>
+                    <div>
+                        <div className="posted">
+                            <p className="post-date">Posted: {new Date(postInfo.created_at).toLocaleDateString()}</p>
+                        </div>
+                            <div className="title">
+                            <h2 className="post-title">{postInfo.title}</h2>
+                        </div>
+                        <div className="comments-and-upvotes">
+                            <p className="post-comments">Comments: {commentNum}</p>
+                            <p className="post-upvotes">Upvotes: {postInfo.upvotes}</p>
+                        </div>
+                        
+                    </div>
                 ) : (
-                    <p>Loading post...</p>
+                    <Loading />
                 )}
             </div>
         </Link>

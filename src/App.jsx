@@ -4,6 +4,8 @@ import CreatePostPage from './components/CreatePostPage';
 import HomeFeedPage from './components/HomeFeedPage';
 import UniquePostPage from './components/UniquePostPage';
 import UpdatePostPage from './components/UpdatePostPage';
+import appLogo from './images/app-logo-4.png';
+
 import {
   BrowserRouter as Router,
   Routes,
@@ -15,7 +17,7 @@ function NavBar() {
   return (
     <nav>
       <div>
-        <div> Logo </div>
+        <img src={appLogo} alt="App Logo" className="app-logo" />
       </div>
       <div className="links">
         <div className="link-container">
