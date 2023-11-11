@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import supabase from '../supabaseClient';
 import { useParams, useNavigate } from 'react-router-dom';
+import '../UpdatePostPage.css' // uses same CSS
+
 
 function UpdatePostPage() {
     const { id } = useParams()
@@ -51,26 +53,33 @@ function UpdatePostPage() {
     return (
         <div>
             <form onSubmit={handleSubmit}>
+            <div className="create-post-column">
                 <input 
                     type="text"
-                    placeholder="Edit Title"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}>
+                    className="title-input" 
+                    placeholder='Title' 
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)}
+                    required>
                 </input>
+                <textarea 
+                    type="text"
+                    className="content-input" 
+                    placeholder='Post Content' 
+                    value={content} 
+                    onChange={(e) => setContent(e.target.value)}
+                    required>
+                </textarea>
                 <input 
                     type="text"
-                    placeholder="Edit Content"
-                    value={content}
-                    onChange={(e) => setContent(e.target.value)}>
-                </input>
-                <input 
-                    type="text"
-                    placeholder="Edit Image URL"
-                    value={imageURL}
+                    className="image-input" 
+                    placeholder='Image URL' 
+                    value={imageURL} 
                     onChange={(e) => setImageURL(e.target.value)}>
                 </input>
-                <button type="submit">Submit</button>
-            </form>
+            </div>
+            <button className="submit-create-post" type="submit">Post</button>
+        </form>
         </div>
     )
 }
