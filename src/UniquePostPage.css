@@ -1,0 +1,97 @@
+.unique-post-container {
+    background-color: rgb(250, 248, 237);
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    padding-bottom: 30px; /* Increased padding at the bottom */
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.unique-post-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.unique-post-content {
+    color: black;
+    margin-bottom: 10px; /* Adjust this value as needed */
+}
+
+.unique-post-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Add space above the footer */
+}
+
+.unique-post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px; /* This pushes the footer down if needed */
+}
+
+.unique-post-interactions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.unique-post-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.unique-icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.unique-icon-thumbs-up::before {
+    content: '👍'; /* Replace with actual icon */
+}
+
+.unique-icon-trash::before {
+    content: '🗑️'; /* Replace with actual icon */
+}
+
+.unique-icon-edit::before {
+    content: '✏️'; /* Replace with actual icon */
+}
+
+.unique-comment-feed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.unique-comment-bubble {
+    background-color: rgb(250, 248, 237);
+    padding: 10px;
+    margin: 10px 0;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.unique-comment-date {
+    font-size: 12px;
+    color: grey;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.unique-comment-text {
+    color: black;
+    font-size: 14px;
+}
+
+
+

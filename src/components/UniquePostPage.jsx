@@ -2,6 +2,8 @@ import { React, useEffect, useState } from 'react';
 import supabase from '../supabaseClient';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import SubmitCommentForm from './SubmitCommentForm';
+import Loading from './Loading';
+import '../UniquePostPage.css'
 
 function UniquePostPage() {
     
@@ -90,35 +92,48 @@ function UniquePostPage() {
     // need to add Post creation and deletion
     return (
         <>
-        <div>
+        <div className="unique-post-container">
             {postInfo ? (
                 <>
-                    <p>Post title: {postInfo.title}</p>
-                    <p>Post content: {postInfo.content}</p>
-                    <p>Post image: {postInfo.image_url ? (<img src={postInfo.image_url}></img>) : (null)}</p>
-                    <p>Number of upvotes: {postInfo.upvotes}</p>
-                    <p>Number of comments: {commentInfo.length}</p>
-                    <p>Post created at: {postInfo.created_at}</p>
+                    <p className="unique-comment-date">{new Date(postInfo.created_at).toLocaleString()}</p>
+                    <h1 className="unique-post-title">{postInfo.title}</h1>
+                    <p className="unique-post-content">{postInfo.content}</p>
+                    {postInfo.image_url && (
+                        <img className="unique-post-image" src={postInfo.image_url} alt="Post" />
+                    )}
+                    <div className="unique-post-footer">
+                        <div className="unique-post-interactions">
+                            <button className="unique-icon-button" onClick={upvoteUpdate}>
+                                <i className="unique-icon-thumbs-up"></i>
+                            </button>
+                            <span>{postInfo.upvotes} Upvotes</span>
+                            <span>{commentInfo.length} Comments</span>
+                        </div>
+                        <div className="unique-post-actions">
+                            <button className="unique-icon-button" onClick={deletePost}>
+                                <i className="unique-icon-trash"></i>
+                            </button>
+                            <Link className="unique-icon-button" to={`/posts/update/${id}`}>
+                                <i className="unique-icon-edit"></i>
+                            </Link>
+                        </div>
+                    </div>
                 </>
             ) : (
-                <p>Loading post...</p>
+                <Loading />
             )}
         </div>
-        <button onClick={upvoteUpdate}>Upvote</button>
-        <button onClick={deletePost}>Delete</button>
-        <Link to={`/posts/update/${id}`}>Edit</Link> 
+
         <SubmitCommentForm id={id} onCommentSubmit={handleNewComment}></SubmitCommentForm>
-        <div>
+        <div className="unique-comment-feed">
             {commentInfo ? (
-                <>
-                    {commentInfo.map((comment, index) => (
-                        <div key={comment.id}> 
-                        <p>{comment.comment_text}</p>
-                        <p>{comment.created_at}</p>
-                        </div>
-                    ))}
-                </>
-            ) : null
+                commentInfo.map((comment) => (
+                    <div key={comment.id} className="unique-comment-bubble">
+                        <p className="unique-comment-date">{new Date(comment.created_at).toLocaleString()}</p>
+                        <p className="unique-comment-text">{comment.comment_text}</p>
+                    </div>
+                ))
+            ) : <Loading />
             }
         </div>
         </>

@@ -1,0 +1,39 @@
+.unique-comment-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 15px auto;
+}
+
+.unique-comment-input {
+    padding: 5px 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px; 
+    font-size: 14px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    outline: none; 
+}
+
+.unique-comment-button {
+    padding: 8px;
+    border: none;
+    border-radius: 15px; 
+    background-color: rgb(67, 83, 52);  
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.unique-comment-button:hover {
+    background-color: #0056b3;
+}
+
+/* Ensuring that the button and input field are the same height */
+.unique-comment-input,
+.unique-comment-button {
+    height: 30px;
+}
+
