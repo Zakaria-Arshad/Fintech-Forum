@@ -38,7 +38,7 @@ The following **optional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![]("https://github.com/Zakaria-Arshad/Fintech-Forum/blob/main/finalproject.gif")
+![](https://github.com/Zakaria-Arshad/Fintech-Forum/blob/main/finalproject.gif)
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
