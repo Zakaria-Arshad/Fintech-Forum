@@ -1,4 +1,4 @@
-# Web Development Final Project - *Fintech Forum*
+# Codepath Web Development Final Project - *Fintech Forum*
 
 Submitted by: **Zakaria Arshad**
 
